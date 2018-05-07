@@ -28,7 +28,7 @@ and build it with Maven:
 ```
 mvn package
 ```
-now you can run it:
+now you can run it with:
 ```
 java -cp target/hw01-0036487400-1.0-SNAPSHOT.jar hr.fer.zemris.java.hw01.Factorial
 ```
