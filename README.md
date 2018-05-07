@@ -2,7 +2,7 @@
 
 Repository for the solutions of homework assignments for [Introduction to Java Programming Language][1] course by Marko Čupić at Faculty of Electrical Engineering and Computing Zagreb.
 
-![fer-logo](https://i.imgur.com/ZQ8IzaR.png)![fer-logo](https://i.imgur.com/PxlgLxf.png)
+![fer-java-logo](https://i.imgur.com/Eex6wAi.png)
 
 ## Table of Contents
 - [Course overview](#course-overview)
