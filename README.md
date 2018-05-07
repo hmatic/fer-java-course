@@ -2,6 +2,8 @@
 
 Repository for the solutions of homework assignments for [Introduction to Java Programming Language][1] course by Marko Čupić at Faculty of Electrical Engineering and Computing Zagreb.
 
+[[https://github.com/hmatic/fer-java-course/blob/master/fer-logo.png|alt=fer-logo]]
+
 ## Table of Contents
 - [Course overview](#course-overview)
 - [Getting started](#getting-started)
