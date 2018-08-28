@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">OPJJ1</string>
+    <string name="enter_numbers">Unesite brojeve:</string>
+    <string name="btn_calculate">Izračunaj</string>
+    <string name="unesite_djeljenika">Unesite djeljenika</string>
+    <string name="unesite_djelitelja">Unesite djelitelja</string>
+    <string name="enter_text">Unesite tekst</string>
+    <string name="send_back">Pošalji nazad</string>
+    <string name="btn_email">Sastavi poruku</string>
+    <string name="send_to_label">Primatelj</string>
+    <string name="send_to_field">Unesite primatelja</string>
+    <string name="title_label">Naslov</string>
+    <string name="title_field">Unesite naslov</string>
+    <string name="message_field">Unesite poruku</string>
+    <string name="message_label">Poruka</string>
+    <string name="btn_send">Pošalji</string>
+    <string name="send_result">Pošalji rezultat</string>
+    <string name="error_msg">Nepotpun unos. Molimo provjerite polja</string>
+</resources>

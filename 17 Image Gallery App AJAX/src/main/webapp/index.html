@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Football World Cup 2018 Russia Gallery</title>
+		
+		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+		
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(getTags);
+
+			function getTags() {
+				$.ajax({
+					url : "rest/tags",
+					dataType : "json",
+					success : function(data) {
+						$("#pageContent").html("");
+						let tags = data["tags"];
+						let html = "<h3>List of tags:</h3>";
+						if (tags.length == 0) {
+							html = "<p>Trenutno nema tagova<p>"
+						} else {
+							html += '<p>Welcome to gallery. Pick a tag to see pictures.</p>';
+							for (let i = 0; i < tags.length; i++) {
+								html += '<button type="button" class="btn btn-primary btn-space" onClick="getTagImages(\''
+										+ tags[i] + '\')" >' + tags[i] + '</button>';
+							}
+						}
+						$("#pageContent").html(html);
+					}
+				});
+			}
+
+			function getTagImages(tag) {
+				$.ajax({
+					url : "rest/tags/" + tag,
+					dataType : "json",
+					success : function(data) {
+						let imageNames = data["imgNames"];
+						let html = "";
+						if (imageNames.length == 0) {
+							html = "Nema rezultata..."
+						} else {
+							html += '<h2>Pictures for tag: ' + tag
+									+ '</h2>'
+							for (let i = 0; i < imageNames.length; i++) {
+								html += '<a class="img-thumb-link" onClick="getImage(\''
+										+ imageNames[i]	+ '\')"><img class="img-thumbnail" src="thumbnail/' + imageNames[i] + '"></a>';
+							}
+						}
+						$("#pageContent").html(html);
+					}
+				});
+			}
+
+			function getImage(name) {
+				$.ajax({
+					url : "rest/image/" + name,
+					dataType : "json",
+					success : function(data) {
+						let image = data;
+						let html = '<img src="image/' + image.name + '">';
+
+						$("#image-modal-content").html(html);
+						
+						$("#image-caption").html(
+								image.name + '</br>' + image.desc + '</br> Tags: '
+										+ image.tags.join(", "));
+
+						$('#myModal').css('display', 'block')
+					}
+				});
+			}
+		</script>
+	</head>
+	<body>
+		<div class="wrapper">
+			<h1><a href="index.html">Football World Cup 2018 Russia Gallery</a></h1>
+			
+			<div id="pageContent"></div>
+			
+			<div id="myModal" class="image-modal">
+				<span class="modal-close" id="closebutton">&times;</span>
+				<div id="image-modal-content"></div>
+				<div id="image-caption"></div>
+			</div>
+		</div>
+	
+		<script>
+			$('#closebutton').on('click', function() {
+				$('#myModal').css('display', 'none');
+				$('#image-modal-content').html("");
+				$('#image-caption').html("");
+			})
+		</script>
+	</body>
+</html>
